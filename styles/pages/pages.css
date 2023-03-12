@@ -1,0 +1,23 @@
+.page {
+    display: grid;
+    position: relative;
+    height: calc(100% - 12ch);
+    width: calc(100% - 12ch);
+    margin: 1ch;
+    padding: 5ch;
+    grid-template-rows: auto 7ch;
+    transition: .5s;
+    position: absolute;
+    top: 0;
+}
+.main-page {
+    width: calc(100% - 30ch);
+}
+main {
+    background-color: #444;
+    border-radius: 5ch;
+}
+main h1 {
+    text-align: center;
+    color: #ddd;
+}

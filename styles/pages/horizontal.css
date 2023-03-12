@@ -1,0 +1,28 @@
+.page[state=shown][direction=right] {
+    animation: showPageRight .5s ease-in-out forwards;
+}
+.page[state=hiding][direction=right] {
+    animation: hidePageRight .5s ease-in-out forwards;
+}
+@keyframes showPageRight {
+    0% { left: -100% }
+    100% { left: 0% }
+}
+@keyframes hidePageRight {
+    0% { left: 0% }
+    100% { left: 100% }
+}
+.page[state=shown][direction=left] {
+    animation: showPageLeft .5s ease-in-out forwards;
+}
+.page[state=hiding][direction=left] {
+    animation: hidePageLeft .5s ease-in-out forwards;
+}
+@keyframes showPageLeft {
+    0% { left: 100% }
+    100% { left: 0% }
+}
+@keyframes hidePageLeft {
+    0% { left: 0% }
+    100% { left: -100% }
+}

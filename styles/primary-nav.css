@@ -1,0 +1,65 @@
+#primary-nav {
+    position: absolute;
+    left: calc(100% - 10ch);
+    top: calc(50% - 10ch);
+    z-index: 1;
+}
+#menu {
+    position: absolute;
+    border-radius: 50%;
+    width: 20ch;
+    height: 20ch;
+    background-color: #555;
+    border-width: 0.5ch;
+    border-color: #333;
+    z-index: 1;
+}
+#primary-menu {
+    position: absolute;
+    left: -5ch;
+    top: -5ch;
+    width: 30ch;
+    height: 30ch;
+}
+nav[state=shown] {
+    animation: showNavbar .5s ease-out forwards;
+}
+nav[state=hiding] {
+    animation: hideNavbar .5s ease-out forwards;
+}
+nav[state=hidden] {
+    display: none;
+}
+@keyframes showNavbar {
+    0% { translate: 20ch }
+    100% { translate: 0 }
+}
+@keyframes hideNavbar {
+    0% { translate: 0 }
+    100% { translate: 20ch }
+}
+#primary-menu button{
+    position: absolute;
+    width: 5ch;
+    height: 5ch;
+    top: calc(50% - 2.5ch);
+    left: calc(50% - 2.5ch);
+    transition: .5s;
+}
+#primary-menu[state=shown] button {
+    animation: openNavbar .5s ease-out forwards;
+}
+#primary-menu[state=hiding] button {
+    animation: closeNavbar .5s ease-out forwards;
+}
+#primary-menu[state=hidden] button {
+    display: none;
+}
+@keyframes openNavbar {
+    0% { transform: translate(0) }
+    100% { transform: translate(15ch) }
+}
+@keyframes closeNavbar {
+    0% { transform: translate(15ch) }
+    100% { transform: translate(0) }
+}

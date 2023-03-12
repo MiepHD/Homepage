@@ -1,0 +1,72 @@
+#secondary-nav {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 1ch;
+    margin: 1ch;
+}
+#secondary-nav button {
+    width: 3ch;
+    height: 3ch;
+    padding: 0;
+    margin: 0.5ch;
+}
+#secondary-nav button:has(img) {
+    width: 5ch;
+    height: 5ch;
+    padding: 0;
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+img[orientation=left] {
+    rotate: 180deg;
+}
+#secondary-nav button img {
+    opacity: .2;
+    position: relative;
+}
+#secondary-nav button:has(img)::before {
+    content: "";
+    background-size: 5ch 5ch;
+    width: 5ch;
+    height: 5ch;
+    position: absolute;
+}
+#secondary-nav button[data-page-number="1"]::before {
+    background-image: url("../assets/home_border.png");
+}
+#secondary-nav button:has(img[orientation])::before {
+    background-image: url("../assets/arrow_border.png");
+}
+#secondary-nav button[data-page-number="1"]:disabled::before,
+#secondary-nav button:has(img[orientation]):disabled::before {
+    opacity: .7;
+}
+#secondary-nav button[data-page-number="1"]:enabled::before,
+#secondary-nav button:has(img[orientation]):enabled::before {
+    opacity: .5;
+}
+#secondary-nav button:has(img[orientation=left])::before {
+    rotate: 180deg;
+}
+#secondary-nav button {
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 0.5);
+    border-width: calc(1ch / 10);
+}
+#secondary-nav button:disabled {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 0, 0, 0.7);
+}
+#secondary-nav button:disabled img {
+    opacity: .5;
+}
+#secondary-nav button:enabled:is(:hover, :focus) {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+#secondary-nav button:enabled:is(:hover, :focus) img {
+    filter: invert(100%);
+    opacity: .2;
+}

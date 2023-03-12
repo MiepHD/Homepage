@@ -1,0 +1,36 @@
+.page[state=shown][direction=down],
+.page[state=hiding][direction=down],
+.page[state=shown][direction=up],
+.page[state=hiding][direction=up] {
+    left: 100%;
+    top: 50%;
+    transform: translate(calc(-100% - 12ch), -50%);
+}
+.page[state=shown][direction=down] {
+    animation: showPageDown .5s ease-in-out forwards;
+}
+.page[state=hiding][direction=down] {
+    animation: hidePageDown .5s ease-in-out forwards;
+}
+@keyframes showPageDown {
+    0% { rotate: -90deg }
+    100% { rotate: 0deg }
+}
+@keyframes hidePageDown {
+    0% { rotate: 0deg }
+    100% { rotate: 90deg }
+}
+.page[state=shown][direction=up] {
+    animation: showPageUp .5s ease-in-out forwards;
+}
+.page[state=hiding][direction=up] {
+    animation: hidePageUp .5s ease-in-out forwards;
+}
+@keyframes showPageUp {
+    0% { rotate: 90deg }
+    100% { rotate: 0deg }
+}
+@keyframes hidePageUp {
+    0% { rotate: 0deg }
+    100% { rotate: -90deg }
+}
