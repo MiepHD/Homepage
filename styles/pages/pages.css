@@ -16,8 +16,8 @@
 main {
     background-color: #444;
     border-radius: 5ch;
+    padding: 2ch;
 }
 main h1 {
     text-align: center;
-    color: #ddd;
 }
