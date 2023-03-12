@@ -1,9 +1,10 @@
+//Manages the 
 class Index {
-    data: any;
-    constructor () {
+    private data: any;
+    constructor() {
         this.data = {};
     }
-    load (callback: Function) {
+    public load(callback: Function): void {
         new XHR("pages/index.json", (result: string) => {
             this.data = JSON.parse(result);
             callback();

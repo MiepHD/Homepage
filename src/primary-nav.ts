@@ -1,11 +1,11 @@
 class PrimaryNav {
-    nav: Element;
-    menu: Element;
-    constructor () {
+    private readonly nav: Element;
+    private readonly menu: Element;
+    constructor() {
         this.nav = $$("#primary-nav")[0];
         this.menu = $$("#primary-menu")[0];
     }
-    initialize (page: Page) {
+    initialize(pages: PagesHandler): void {
         this.addButtons(() => {
             const elems = this.menu.children as HTMLCollectionOf<HTMLElement>;
             const rot = 180 / (elems.length + 1);
@@ -16,7 +16,7 @@ class PrimaryNav {
                 child.style.rotate = `${currrot}deg`;
                 elem.addEventListener("click", (e: any) => {
                     const link = e.target.hasAttribute("link") ? e.target.getAttribute("link") : e.target.parentElement.getAttribute("link");
-                    const currindex = index.getCategories().indexOf(page.getCategory());
+                    const currindex = index.getCategories().indexOf(pages.getCurrentCategory());
                     const direction = currindex > index.getCategories().indexOf(link) ? "up" : "down";
                     const pageElement: Element = $$(".page")[0];
                     pageElement.addEventListener("animationend", (e: any) => {
@@ -25,7 +25,7 @@ class PrimaryNav {
                     }, { once: true });
                     pageElement.setAttribute("direction", direction);
                     pageElement.setAttribute("state", "hiding");
-                    page.newPage(link, 1, direction, "main-page");
+                    pages.newPage(link, 1, direction);
                 });
                 currrot = currrot + rot;
             }
@@ -38,7 +38,7 @@ class PrimaryNav {
             }
         });
     }
-    addButtons (callback: Function) {
+    addButtons(callback: Function): void {
         for (const key of index.getCategories()) {
             $("#primary-menu").append(`
                 <button link="${key}">
@@ -48,26 +48,27 @@ class PrimaryNav {
         }
         callback();
     }
-    switchToCategory (category: string) {
+    switchToCategory(category: string): void {
         for (const elem of this.menu.children) {
             if (elem.getAttribute("link") == category) { elem.setAttribute("disabled", "") }
             else { elem.removeAttribute("disabled") }
         }
     }
-    show () {
+    show(): void {
         this.nav.setAttribute("state", "shown");
     }
-    hide () {
+    hide(): void {
+        if (this.nav.getAttribute("state") == "hidden") return;
         this.nav.addEventListener("animationend", (e: any) => {
             e.target.setAttribute("state", "hidden");
         }, { once: true });
         this.nav.setAttribute("state", "hiding");
     }
-    open () {
+    open(): void {
         this.menu.setAttribute("state", "shown");
         this.menu.setAttribute("aria-expanded", "true");
     }
-    close () {
+    close(): void {
         this.menu.addEventListener("animationend", () => {
             this.menu.setAttribute("state", "hidden");
             this.menu.setAttribute("aria-expanded", "false");

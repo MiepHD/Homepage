@@ -1,6 +1,6 @@
 class Url {
-    getContent (callBackFunction: Function) {
-        const url: Array<string> = window.location.toString().split("#");
+    get(callBackFunction: Function): void {
+        const url: Array<string> = window.location.href.toString().split("#");
         if (url.length > 1) {
             const query: Array<string> = url[1].split(".");
             if (query.length > 1) {
@@ -12,5 +12,8 @@ class Url {
             }
         }
         callBackFunction();
+    }
+    set(id: number, category: string): void {
+        window.location.href = window.location.toString().split("#")[0] + `#${id}.${category}`;
     }
 }
