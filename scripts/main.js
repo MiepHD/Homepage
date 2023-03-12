@@ -1,16 +1,17 @@
-const primarynav = new PrimaryNav();
-const secondarynav = new SecondaryNav();
+"use strict";
 const index = new Index();
-const page = new Page();
 document.addEventListener("DOMContentLoaded", () => {
-    url = new Url();
+    const url = new Url();
     index.load(() => {
-        primarynav.initialize();
-        url.getContent(result => {
-            if (!(result.err)) {
+        url.getContent((result) => {
+            const page = new Page();
+            if (result) {
                 const type = result.page == 1 ? "main-page" : "page";
-                page.newPage(result.category, result.pageid, "", type);
-            } else { page.newPage() }
+                page.newPage(result.category, result.page, "", type);
+            }
+            else {
+                page.newPage(index.getCategories()[0], 1, "", "main-page");
+            }
         });
     });
 });

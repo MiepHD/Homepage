@@ -1,13 +1,14 @@
-"use strict";
 class Page {
-    constructor() {
+    secondarynav: SecondaryNav;
+    primarynav: PrimaryNav;
+    constructor () {
         this.secondarynav = new SecondaryNav();
         this.primarynav = new PrimaryNav();
         this.primarynav.initialize(this);
     }
-    newPage(category, id, direction, page) {
+    newPage(category: string, id: number, direction: string, page: string) {
         this.primarynav.switchToCategory(category);
-        new XHR(`pages/${category}/${id}.html`, (result) => {
+        new XHR(`pages/${category}/${id}.html`, (result: string) => {
             $("body").append(`
                 <div direction="${direction}" state="shown" class="page ${page}" id="${id}">
                     <main page="${category}">
@@ -19,38 +20,31 @@ class Page {
                     </nav>
                 </div>
             `);
-            this.secondarynav.addButtons($(".page[state=shown] #secondary-nav"), category, id, (dest) => {
+            this.secondarynav.addButtons($(".page[state=shown] #secondary-nav"), category, id, (dest: number) => {
                 this.loadPage(dest);
             });
         });
     }
-    loadPage(destination) {
-        let id = 0;
-        let page = "";
+
+    loadPage(destination: number) {
+        let id: number = 0;
+        let page: string = "";
         const category = this.getCategory();
         const len = index.getLengthByCategory(category) + 1;
         const currid = this.getId();
-        if (destination == 0) {
-            id = currid - 1;
-        }
-        else if (destination == len) {
-            id = currid + 1;
-        }
-        else {
-            id = destination;
-        }
-        if (id > len || id < 1)
-            id = 1;
-        const direction = currid > id ? "left" : "right";
-        const pageElement = $$(".page")[0];
-        pageElement.addEventListener("animationend", (e) => {
+        if (destination == 0) { id = currid - 1}
+        else if (destination == len) { id = currid + 1}
+        else { id = destination}
+        if(id > len || id < 1) id = 1;
+        const direction: string = currid > id ? "left" : "right";
+        const pageElement: Element = $$(".page")[0];
+        pageElement.addEventListener("animationend", (e: any) => {
             e.target.remove();
             window.location.href = window.location.toString().split("#")[0] + `#${id}.${category}`;
             this.secondarynav.disableById(id, category);
             if (id == 1) {
                 this.primarynav.show();
-            }
-            else {
+            } else {
                 this.primarynav.hide();
             }
         }, { once: true });
@@ -59,13 +53,13 @@ class Page {
         this.newPage(category, id, direction, page);
     }
     getId() {
-        const id = $$(".page")[0].getAttribute("id");
-        const result = id ? parseInt(id) : 1;
+        const id: string | null = $$(".page")[0].getAttribute("id");
+        const result: number = id ? parseInt(id) : 1;
         return result;
     }
     getCategory() {
-        const category = $$("main")[0].getAttribute("page");
-        const result = category ? category : index.getCategories()[0];
+        const category: string | null = $$("main")[0].getAttribute("page");
+        const result: string = category ? category : index.getCategories()[0];
         return result;
     }
 }
