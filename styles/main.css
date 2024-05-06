@@ -11,6 +11,7 @@ body {
   margin: 0;
   color: var(--text);
   font-family: 'Poly';
+  font-size: large;
 }
 button img {
   width: 5ch;
