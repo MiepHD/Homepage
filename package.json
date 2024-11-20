@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/MiepHD/Homepage/issues"
   },
-  "homepage": "https://github.com/MiepHD/Homepage#readme"
+  "homepage": "https://github.com/MiepHD/Homepage#readme",
+  "dependencies": {
+    "homepage": "file:"
+  }
 }

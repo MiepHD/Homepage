@@ -17,7 +17,25 @@ main {
   background-color: var(--secondary-background);
   border-radius: 5ch;
   padding: 2ch;
+  overflow-y: scroll;
 }
 main h1 {
   text-align: center;
+}
+
+a {
+  color: var(--accent);
+}
+
+main > img {
+  height: calc(100% - 1ch);
+  width: calc(100% - 1ch);
+  object-fit: contain;
+}
+
+::-webkit-scrollbar {
+  background-color: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
 }

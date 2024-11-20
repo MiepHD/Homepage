@@ -51,12 +51,14 @@ img[orientation='left'] {
   rotate: 180deg;
 }
 #secondary-nav button {
+  cursor: pointer;
   border-radius: 50%;
   background-color: var(--secondary);
   border-color: rgba(0, 0, 0, 0.5);
   border-width: calc(1ch / 10);
 }
 #secondary-nav button:disabled {
+  cursor: default;
   background-color: rgba(0, 0, 0, 0.5);
   border-color: rgba(0, 0, 0, 0.7);
 }
