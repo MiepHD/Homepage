@@ -15,7 +15,7 @@
 }
 main {
   background-color: var(--secondary-background);
-  border-radius: 5ch;
+  border-radius: 2ch;
   padding: 2ch;
   overflow-y: scroll;
 }
@@ -34,9 +34,11 @@ main > img {
 }
 
 ::-webkit-scrollbar {
+  width: 2ch;
   background-color: var(--background);
 }
 ::-webkit-scrollbar-thumb {
+  border-radius: 0 2ch 2ch 0;
   background: var(--secondary);
 }
 
