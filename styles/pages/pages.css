@@ -39,3 +39,8 @@ main > img {
 ::-webkit-scrollbar-thumb {
   background: var(--secondary);
 }
+
+main > ul {
+  width: max-content;
+  margin: auto;
+}
