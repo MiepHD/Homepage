@@ -32,17 +32,9 @@ main > img {
   width: calc(100% - 1ch);
   object-fit: contain;
 }
-
-::-webkit-scrollbar {
-  width: 2ch;
-  background-color: rgba(0, 0, 0, 0);
-  border-left: 1px black solid;
-}
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb:vertical {
   border-radius: 0 2ch 2ch 0;
-  background: var(--secondary);
 }
-
 main > ul {
   width: max-content;
   margin: auto;

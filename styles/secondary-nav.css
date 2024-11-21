@@ -6,6 +6,13 @@
   gap: 1ch;
   margin: 1ch;
 }
+#secondary-nav > div {
+  margin-top: 2ch;
+  max-width: 33vw;
+  white-space: nowrap;
+  overflow-x: scroll;
+  direction: rtl;
+}
 #secondary-nav button {
   width: 3ch;
   height: 3ch;
@@ -70,4 +77,7 @@ img[orientation='left'] {
 }
 #secondary-nav button:enabled:is(:hover, :focus) img {
   opacity: 0.2;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  border-radius: 2ch;
 }

@@ -17,3 +17,11 @@ button img {
   width: 5ch;
   height: 5ch;
 }
+::-webkit-scrollbar {
+  width: 2ch;
+  background-color: rgba(0, 0, 0, 0);
+  border-left: 1px black solid;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+}
