@@ -39,3 +39,7 @@ main > ul {
   width: max-content;
   margin: auto;
 }
+.text {
+  width: 33vw;
+  margin: auto;
+}

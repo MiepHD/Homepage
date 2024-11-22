@@ -47,7 +47,7 @@ class SecondaryNav {
       buttons[id + 1].setAttribute('disabled', '');
       buttons[id].setAttribute('disabled', '');
     }
-    buttons[id].setAttribute('disabled', '');
+    buttons[id]?.setAttribute('disabled', '');
   }
   IdToDestination(destination: number, currentid: number): number {
     let id: number = 0;
