@@ -17,9 +17,21 @@ class Index {
     return Object.keys(this.data);
   }
   getLengthByCategory(category: string) {
-    return this.data[category].length;
+    if (this.data[category]) {
+      return this.data[category].length;
+    } else {
+      return 1;
+    }
   }
   getFilepath(category: string, id: number) {
-    return this.data[category][id - 1];
+    if (this.data[category]) {
+      if (id <= this.getLengthByCategory(category)) {
+        return this.data[category][id - 1];
+      } else {
+        return '../404/number';
+      }
+    } else {
+      return '../404/category';
+    }
   }
 }

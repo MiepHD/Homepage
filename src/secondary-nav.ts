@@ -22,7 +22,6 @@ class SecondaryNav {
     const buttons: NodeListOf<Element> = $$(
       'div[state=shown] #secondary-nav button'
     );
-    console.log(buttons);
     for (let num: number = 0; num < buttons.length; num++) {
       buttons[num].setAttribute('data-page-number', num.toString());
       buttons[num].addEventListener('click', (e: any) => {
