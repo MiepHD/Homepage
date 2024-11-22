@@ -17,9 +17,11 @@ class PagesHandler {
   }
   newPage(category: string, id: number, direction: string): void {
     this.primarynav.switchToCategory(category);
-    new XHR(`pages/${category}/${id}.html`, (result: string) => {
-      const pagetype: string = id == 1 ? 'main-page' : '';
-      $('body').append(`
+    new XHR(
+      `pages/${category}/${index.getFilepath(category, id)}.html`,
+      (result: string) => {
+        const pagetype: string = id == 1 ? 'main-page' : '';
+        $('body').append(`
                 <div direction="${direction}" state="shown" class="page ${pagetype}">
                     <main>
                         ${result}
@@ -30,22 +32,23 @@ class PagesHandler {
                     </nav>
                 </div>
             `);
-      if (id == 1) {
-        this.primarynav.show();
-      } else {
-        this.primarynav.hide();
-      }
-      this.currentid = id;
-      this.currentcategory = category;
-      this.secondarynav.addButtons(
-        $('.page[state=shown] #secondary-nav'),
-        category,
-        id,
-        (dest: number) => {
-          this.loadPage(dest);
+        if (id == 1) {
+          this.primarynav.show();
+        } else {
+          this.primarynav.hide();
         }
-      );
-    });
+        this.currentid = id;
+        this.currentcategory = category;
+        this.secondarynav.addButtons(
+          $('.page[state=shown] #secondary-nav'),
+          category,
+          id,
+          (dest: number) => {
+            this.loadPage(dest);
+          }
+        );
+      }
+    );
   }
 
   loadPage(destination: number): void {
