@@ -18,6 +18,8 @@ main {
   border-radius: 2ch;
   padding: 2ch;
   overflow-y: scroll;
+  position: relative;
+  text-align: justify;
 }
 main h1 {
   text-align: center;

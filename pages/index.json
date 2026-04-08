@@ -1,8 +1,9 @@
 {
   "home": [1],
   "cuscon": [1],
-  "minecraft": [1, 2, 3, 4, 5],
-  "passwort": [1, 2],
+  "bedasdaynightswitch": [1],
+  "restricted-insta": [1, 2],
+  "your-game-cards": [1],
   "drawings": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-  "your-game-cards": [1]
+  "minecraft": [1, 2, 3, 4, 5]
 }

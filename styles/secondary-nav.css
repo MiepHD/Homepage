@@ -7,7 +7,6 @@
   margin: 1ch;
 }
 #secondary-nav > div {
-  margin-top: 2ch;
   max-width: 33vw;
   white-space: nowrap;
   overflow-x: scroll;
