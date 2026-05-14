@@ -37,9 +37,10 @@ main > img {
 ::-webkit-scrollbar-thumb:vertical {
   border-radius: 0 2ch 2ch 0;
 }
-main > ul {
+main ul {
   width: max-content;
   margin: auto;
+  text-align: left;
 }
 .text {
   width: 33vw;
