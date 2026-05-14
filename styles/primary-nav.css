@@ -1,6 +1,6 @@
 #primary-nav {
   position: absolute;
-  left: calc(100% - 10ch);
+  left: calc(100% - 7.5ch);
   top: calc(50% - 10ch);
   z-index: 1;
 }
@@ -26,7 +26,7 @@ nav[state='shown'] {
   animation: showNavbar 0.5s ease-out forwards;
 }
 nav[state='hiding'] {
-  animation: hideNavbar 0.5s ease-out forwards;
+  animation: hideNavbar 0.2s ease-out forwards;
 }
 nav[state='hidden'] {
   display: none;
