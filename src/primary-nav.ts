@@ -41,7 +41,7 @@ class PrimaryNav {
     addButtons(callback: Function): void {
         for (const key of index.getCategories()) {
             $("#primary-menu").append(`
-                <button link="${key}">
+                <button link="${key}" aria-label="${index.getNameOfCategory(key)}">
                     <img src="pages/${key}/icon.png">
                 </button>
             `);

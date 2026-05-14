@@ -26,7 +26,9 @@ main h1 {
 }
 
 a {
+  display: inline-block;
   color: var(--accent);
+  height: max-content;
 }
 
 main > img {

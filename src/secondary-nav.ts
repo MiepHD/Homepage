@@ -10,7 +10,7 @@ class SecondaryNav {
     func: Function
   ): void {
     this.length = index.getLengthByCategory(category);
-    navElement.append('<div></div>');
+    navElement.append('<div tabindex="-1"></div>');
     const dots = $('#secondary-nav > div');
     for (let i = 0; i < this.length - 1; i++) {
       dots.append(`<button></button>`);
@@ -24,6 +24,7 @@ class SecondaryNav {
     );
     for (let num: number = 0; num < buttons.length; num++) {
       buttons[num].setAttribute('data-page-number', num.toString());
+      buttons[num].setAttribute('aria-label', `Springe zu Seite ${num.toString()}`);
       buttons[num].addEventListener('click', (e: any) => {
         for (const button of buttons) {
           button.setAttribute('disabled', '');
@@ -34,6 +35,8 @@ class SecondaryNav {
         func(parseInt(dest));
       });
     }
+    buttons[0].setAttribute('aria-label', `Vorherige Seite`);
+    buttons[buttons.length - 1].setAttribute('aria-label', `Nächste Seite`);
   }
   disableById(id: number, category: string): void {
     const buttons: JQuery<HTMLElement> = $(

@@ -1,9 +1,30 @@
 {
-  "home": [1],
-  "cuscon": [1],
-  "bedasdaynightswitch": [1],
-  "restricted-insta": [1, 2],
-  "your-game-cards": [1],
-  "drawings": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-  "minecraft": [1, 2, 3, 4, 5]
+  "home": {
+    "name": "Home",
+    "paths": [1]
+  },
+  "cuscon": {
+    "name": "Cuscon",
+    "paths": [1]
+  },
+  "bedasdaynightswitch": {
+    "name": "Bed as Day-Night switch",
+    "paths": [1]
+  },
+  "restricted-insta": {
+    "name": "Restricted insta",
+    "paths": [1, 2]
+  },
+  "your-game-cards": {
+    "name": "Your Game Cards",
+    "paths": [1]
+  },
+  "drawings": {
+    "name": "Zeichnungen",
+    "paths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+  },
+  "minecraft": {
+    "name": "Minecraft",
+    "paths": [1, 2, 3, 4, 5]
+  }
 }

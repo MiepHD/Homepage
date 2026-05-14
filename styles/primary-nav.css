@@ -52,9 +52,12 @@ nav[state='hidden'] {
   position: absolute;
   width: 5ch;
   height: 5ch;
-  top: calc(50% - 2.5ch);
-  left: calc(50% - 2.5ch);
+  top: calc(50% - 5ch);
+  left: calc(50% - 5ch);
   transition: 0.5s;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
 }
 #primary-menu[state='shown'] button {
   animation: openNavbar 0.5s ease-out forwards;
@@ -70,21 +73,14 @@ nav[state='hidden'] {
     transform: translate(0);
   }
   100% {
-    transform: translate(15ch);
+    transform: translate(17.5ch);
   }
 }
 @keyframes closeNavbar {
   0% {
-    transform: translate(15ch);
+    transform: translate(17.5ch);
   }
   100% {
     transform: translate(0);
   }
-}
-
-#primary-menu button {
-  height: 0;
-  width: 0;
-  border: 0;
-  padding: 0;
 }

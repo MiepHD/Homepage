@@ -18,15 +18,22 @@ class Index {
   }
   getLengthByCategory(category: string) {
     if (this.data[category]) {
-      return this.data[category].length;
+      return this.data[category]["paths"].length;
     } else {
       return 1;
+    }
+  }
+  getNameOfCategory(category: string) {
+    if (this.data[category]) {
+      return this.data[category]["name"];
+    } else {
+      return "Unbenannt";
     }
   }
   getFilepath(category: string, id: number) {
     if (this.data[category]) {
       if (id <= this.getLengthByCategory(category)) {
-        return this.data[category][id - 1];
+        return this.data[category]["paths"][id - 1];
       } else {
         return '../404/number';
       }
